@@ -1,0 +1,26 @@
+#pixelart {
+
+}
+
+#emote {
+  left: -45%;
+  margin-bottom: 3px;
+}
+
+.draggable {
+  -webkit-app-region: drag;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  bottom: 0
+}
+
+img {
+  position: relative;
+  left: -60%;
+}

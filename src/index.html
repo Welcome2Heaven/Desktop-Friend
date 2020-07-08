@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Desktop Friend</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    //time it takes until emote vanishes
+    function emoteDelay() {
+      setTimeout(function() {
+        document.getElementById("emote").src = "img/emotes/null.png";
+      }, 3000);
+    };
+
+    function emote() {
+      if (document.getElementById("emote").src != "img/emotes/heart.png") {
+        document.getElementById("emote").src = "img/emotes/heart.png";
+        emoteDelay();
+      }
+    }
+
+    //rest timer
+    function startTimer(duration) {
+      var timer = duration,
+        minutes, seconds
+      var interval = 20;
+
+      setInterval(function() {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+        if (--timer < 0) {
+          document.getElementById("pixelart").src = "img/character/rest.gif";
+        }
+        if (--timer < -interval*2) {
+          document.getElementById("pixelart").src = "img/character/default.gif";
+          timer = duration;
+        }
+
+      }, 1000);
+    }
+
+    window.onload = function() {
+      var secs = 10;
+      startTimer(secs);
+    };
+  </script>
+</head>
+
+<body class="draggable">
+  <img draggable="false" id="emote" src="img/emotes/null.png" />
+  <img draggable="false" onclick="emote();" id="pixelart" src="img/character/default.gif" />
+</body>
+
+</html>
